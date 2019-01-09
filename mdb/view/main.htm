@@ -1,0 +1,67 @@
+	
+		 <div  data-ng-controller='MainController'>
+
+<div class="block">
+	<div class="field is-grouped">
+	  <p class="control is-expanded">
+	    <input ng-change="search()" ng-model="newContent" ng-value="newContent" class="input" type="text" placeholder="film">
+	  </p>
+	  <p class="control">
+	    <a class="button is-info is-outlined" ng-click="addOne()">
+	      dodaj
+	    </a>
+	  </p>
+	</div>
+</div>
+
+<div class="block" ng-if="data && newContent !=''">
+	<article class="message is-info">
+		
+		<div class="message-header" ng-click="takeTitle()" style="cursor:pointer">
+			{{ data.Title }} - {{data.Genre}} - {{data.Year}}
+		</div>
+
+		<div class="message-body">
+<div class="tile is-parent">
+<div class="tile is-child">
+
+			<img ng-src='{{data.Poster}}' alt="poster">
+
+</div>
+<div class="tile is-child">
+			Director: {{data.Director}}
+			<br>
+			Actores: {{data.Actors}} 
+			<br><br>
+			{{data.Plot}}
+
+</div>
+
+</div>
+			
+
+
+		</div>
+	</article>
+	
+</div>
+
+<div class="block">
+        <div class="message">
+            <div class="message-header">
+                lista filmów
+            </div>
+            <article class="message-body">
+            	<ul>
+            		<li ng-repeat="nth in movies" data-dbId='{{nth.dbId}}'>
+            			{{nth.title}}
+            
+            		</li>
+            	</ul>
+            </article>
+        </div>
+</div>
+
+
+
+		</div>
